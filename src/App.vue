@@ -1,30 +1,68 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar__item">
+        <router-link to="/">Home</router-link>
+      </div>
+      <div class="sidebar__item">
+        <router-link to="/about">About</router-link>
+      </div>
+       <div class="sidebar__item">
+        <router-link to="/signin">Sign in</router-link>
+      </div>
+    </div>
+    <div class="content">
+      <router-view />
+    </div>
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+#app {
+  color: #3b3b3b;
+}
 
-  a {
+.wrapper {
+  display: flex;
+  padding: 15px;
+  min-height: 100vh;
+  background: #3b3b3b;
+}
+.sidebar {
+  padding: 15px;
+  width: 15%;
+  margin-right: 15px;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+
+  & a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #3b3b3b;
+    text-decoration: none;
 
     &.router-link-exact-active {
       color: #42b983;
     }
   }
+  &__item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.content {
+  width: 85%;
+  border-radius: 15px;
+  background: #ffffff;
 }
 </style>
